@@ -23,7 +23,8 @@ module.exports = {
     },
     encryptedToken: {
       type: 'string',
-      required: true
+      required: true,
+      defaultsTo: 'token'
     },
 
     // Add reference to points
@@ -31,5 +32,12 @@ module.exports = {
       collection: 'point',
       via: 'graph'
     }
+  },
+
+  toJSON: function() {
+    var obj = this.toObject();
+    delete obj.id;
+    delete obj.encryptedToken;
+    return obj;
   }
 };
