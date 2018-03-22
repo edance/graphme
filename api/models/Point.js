@@ -9,7 +9,10 @@ module.exports = {
   attributes: {
     x: {
       type: 'float',
-      required: true
+      required: true,
+      defaultsTo: function() {
+        return new Date().getTime();
+      }
     },
     y: {
       type: 'float',
