@@ -17,5 +17,15 @@ module.exports = {
   },
   destroy: function (req, res) {
     return res.notFound();
-  }
+  },
+  create(req, res) {
+    const params = req.allParams();
+    Graph.create(params).then((graph) => {
+      var responseData = {
+        graph,
+        token: JwtService.issue({uuid: graph.uuid})
+      };
+      return res.status(201).json(responseData);
+    }).catch((error) => res.status(400).json(error.Errors));
+  },
 };
