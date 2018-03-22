@@ -6,6 +6,16 @@
  */
 
 module.exports = {
-	
+  index: function (req, res) {
+    return res.notFound();
+  },
+  show: function (req, res) {
+    return res.notFound();
+  },
+  update: function (req, res) {
+    return res.notFound();
+  },
+  destroy: function (req, res) {
+    return res.notFound();
+  }
 };
-
