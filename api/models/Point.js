@@ -23,5 +23,11 @@ module.exports = {
     graph: {
       model: 'graph'
     }
+  },
+
+  toJSON: function() {
+    var obj = this.toObject();
+    delete obj.id;
+    return obj;
   }
 };
