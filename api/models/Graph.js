@@ -21,11 +21,6 @@ module.exports = {
       type: 'string',
       required: true
     },
-    encryptedToken: {
-      type: 'string',
-      required: true,
-      defaultsTo: 'token'
-    },
 
     // Add reference to points
     points: {
@@ -37,7 +32,6 @@ module.exports = {
   toJSON: function() {
     var obj = this.toObject();
     delete obj.id;
-    delete obj.encryptedToken;
     return obj;
   }
 };
