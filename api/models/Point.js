@@ -21,7 +21,8 @@ module.exports = {
 
     // Add reference to graph
     graph: {
-      model: 'graph'
+      model: 'graph',
+      required: true
     }
   },
 
