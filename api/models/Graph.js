@@ -5,12 +5,17 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
+const uuid = require('uuid/v1');
+
 module.exports = {
   attributes: {
     uuid: {
       type: 'string',
       unique: true,
-      required: true
+      required: true,
+      defaultsTo: function() {
+        return uuid();
+      }
     },
     name: {
       type: 'string',
