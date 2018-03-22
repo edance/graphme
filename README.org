@@ -30,7 +30,7 @@
 
 | field           | type   | description                   | example           |
 |-----------------+--------+-------------------------------+-------------------|
-| id              | guid   | uniq identifier for graph     |                   |
+| uuid            | guid   | unique identifier for graph   |                   |
 | name            | string | name of the graph             | "Users over time" |
 | encrypted_token | string | encrypted token for the graph |                   |
 

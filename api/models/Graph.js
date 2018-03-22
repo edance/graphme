@@ -7,6 +7,11 @@
 
 module.exports = {
   attributes: {
+    uuid: {
+      type: 'string',
+      unique: true,
+      required: true
+    },
     name: {
       type: 'string',
       required: true
