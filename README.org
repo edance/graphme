@@ -1,0 +1,44 @@
+* GRAPHME.md
+
+** Features
+
+- View real-time graphs in your README
+- Create new graphs
+- Create points on the graph
+
+** REST Endpoints
+
+*** GET /img/v1/graphs/{id}.svg
+
+- returns the svg for the graph
+- uses d3 to create a graph
+
+*** POST /api/v1/graphs
+
+- creates a new graph
+- returns the token for the graph
+
+*** POST /api/v1/points
+
+- creates a new point for the graph
+- graph_id is required
+- unencrypted token is required
+
+** Schema
+
+*** Graph
+
+| field           | type   | description                   | example           |
+|-----------------+--------+-------------------------------+-------------------|
+| id              | guid   | uniq identifier for graph     |                   |
+| name            | string | name of the graph             | "Users over time" |
+| encrypted_token | string | encrypted token for the graph |                   |
+
+*** Point
+
+| field    | type        | description  | default           |
+|----------+-------------+--------------+-------------------|
+| x        | number      | x coordinate | current timestamp |
+| y        | number      | y coordinate | null              |
+| graph_id | foreign key |              |                   |
+
