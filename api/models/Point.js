@@ -1,5 +1,5 @@
 /**
- * Graph.js
+ * Point.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -7,24 +7,18 @@
 
 module.exports = {
   attributes: {
-    uuid: {
-      type: 'string',
-      unique: true,
+    x: {
+      type: 'float',
       required: true
     },
-    name: {
-      type: 'string',
-      required: true
-    },
-    encryptedToken: {
-      type: 'string',
+    y: {
+      type: 'float',
       required: true
     },
 
-    // Add reference to points
-    points: {
-      collection: 'point',
-      via: 'graph'
+    // Add reference to graph
+    graph: {
+      model: 'graph'
     }
   }
 };
