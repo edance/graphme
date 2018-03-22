@@ -7,6 +7,13 @@ module.exports = {
   },
 
   verify(token, callback) {
-    return jwt.verify(token, jwtSecret, callback);
+    return new Promise((resolve, reject) => {
+      jwt.verify(token, jwtSecret, (err, decoded) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(decoded);
+      });
+    });
   }
 }
