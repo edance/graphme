@@ -8,14 +8,14 @@
 module.exports = {
   // GET /img/v1/graphs/{id}.svg
   graph(req, res) {
-    // this.findGraph(req);
-    // Find graph
-    // Build graph
-    return res.send(`Hi there! ${uuid}`);
+    return this.findGraph(req)
+      .then(GraphBuilderService.buildSVG)
+      .then(svg => res.send(svg))
+      .catch(error => res.status(400).send('bad request'));
   },
   findGraph(req) {
     const uuid = req.param('id');
-    const graph = Graph.findOne({uuid: uuid});
+    return Graph.findOne({uuid: uuid});
   },
 };
 
