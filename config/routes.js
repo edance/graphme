@@ -34,7 +34,11 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+
+  'get /img/v1/graphs/:id.svg': 'ImageController.graph',
+  'post /api/v1/graphs': 'GraphController.create',
+  'post /api/v1/points': 'PointController.create'
 
   /***************************************************************************
   *                                                                          *
